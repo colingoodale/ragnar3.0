@@ -30,7 +30,7 @@ module.exports = function (app) {
         console.log(transporter.SMTPT);
         let mailOptions = {
             from: 'info@ragnarresearch.com',
-            to: 'gammon@ragnarresearch.com, lacombe@ragnarresearch.com, pawlicki@ragnarresearch.com',
+            to: 'gammon@ragnarresearch.com',
             subject: 'Client Request',
             text: 'Client Request:' + req.body.first_name + "," + req.body.last_name + " Mobile Number: " + req.body.phone_number + " email: " + req.body.email + " message: " + req.body.message
         }
