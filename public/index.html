@@ -25,8 +25,8 @@
   <link rel="stylesheet" type="text/css" href="./slick/slick/slick.css" />
 
   <!-- Custom styles -->
-  <link rel="stylesheet" href="./animation.css">
-  <link rel="stylesheet" href="./style.css?v={random number/string}">
+  <link rel="stylesheet" type="text/css" href="./animation.css">
+  <link rel="stylesheet" type="text/css" href="./style.css?v={random number/string}">
 
 </head>
 
@@ -644,11 +644,12 @@
       var emailInfo = {
         first_name: $('#first-name').val().trim(),
         last_name: $('#last-name').val().trim(),
+        phone_number: $('#phone-number').val().trim(),
         email: $('#email').val().trim(),
         message: $('#message').val().trim()
       }
-      console.log(emailInfo);
-      alert("Ragnar will get back to you shortly.");
+      $.post('/api/send', emailInfo);
+      alert("Ragnar will get back to you shortly");
     }
     $(document).on("click", "#submit", emailRequest);
 

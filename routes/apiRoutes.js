@@ -1,58 +1,47 @@
 
 const db = require("../models");
 const nodemailer = require("nodemailer");
+const xoauth2 = require('xoauth2');
 
 module.exports = function (app) {
     app.get("/api/request", function (req, res) {
         res.json("resquests");
     });
-    app.post("/api/request", function (req, res) {
-        db.Request.create({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            mobile_number: req.body.mobile_number,
-            message: req.body.message
-        });
-    });
-    app.post('/api/send'), function (req, res) {
-        db.Request.create({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            mobile_number: req.body.mobile_number,
-            message: req.body.message
-        });
-        let transport = nodemailer.createTransport({
+
+    app.post('/api/send', function (req, res) {
+        //Step1
+        console.log("Data Received");
+        console.log(req.body);
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
             host: 'smtp-relay.gmail.com',
-            port: 465,
-            secure: true,
             auth: {
-                user: "info@ragnarresearch.com",
-                password: "10Ragnar!@#"
+                type: 'oauth2',
+                user: process.env.User,
+                clientId: process.env.clientID,
+                clientSecret: process.env.clientSecret,
+                refreshToken: process.env.clientRefresh
+
             },
             tls: {
                 rejectUnauthorized: false
             }
         });
-        let info = {
-            from: '"Ragnar Website Resuest" <info@ragnarresearch.com>', //sender address
-            to: 'colingoodale@gmail.com, gammon@ragnarresearch.com', //list of receipts
-            subject: "Test Subject", //subject
-            text: 'This is a test!',
-            html: '<h2>This is a succesful test</h2>'
-        };
-        transport.sendMail(mailOptions, function (err, info) {
-            console.log(info);
+        console.log(transporter.SMTPT);
+        let mailOptions = {
+            from: 'info@ragnarresearch.com',
+            to: 'gammon@ragnarresearch.com, lacombe@ragnarresearch.com, pawlicki@ragnarresearch.com',
+            subject: 'Client Request',
+            text: 'Client Request:' + req.body.first_name + "," + req.body.last_name + " Mobile Number: " + req.body.phone_number + " email: " + req.body.email + " message: " + req.body.message
+        }
+        console.log(mailOptions)
+        //Step 3
+        transporter.sendMail(mailOptions, function (err, data) {
             if (err) {
-                return console.log(err);
+                console.log("this is an error" + " " + err);
+            } else {
+                console.log('email sent');
             }
-            console.log('Message sent: %s', info.messageId);
-            console.log('Preview URL: %s', nodemailer.gettestMessageURrl(info));
-            alert("Ragnar will get back to you shortly");
-        });
-
-        console.log(req);
-    };
-
+        })
+    });
 }
