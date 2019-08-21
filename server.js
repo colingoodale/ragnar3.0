@@ -8,7 +8,7 @@ const compression = require("compression");
 const db = require("./models");
 
 const app = express();
-const PORT = (process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(compression());
