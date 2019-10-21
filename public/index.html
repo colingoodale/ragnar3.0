@@ -66,9 +66,10 @@
 
       <div class="row">
         <div class="col-sm-12" id="video-container">
-          <video autoplay muted loop playsinline preload="auto" poster="./files/preload.jpeg">
-            <source src="./files/CombinedCities.mp4" type="video/mp4">
-          </video>
+          <img class="main-slide-img" src="./files/Landing_Page_190807.jpg">
+          <img class="main-slide-img" src="./files/Austin_Only.jpg">
+          <img class="main-slide-img" src="./files/OKC_Only.jpg">
+          <img class="main-slide-img" src="./files/Bend_Only.jpg">
 
         </div>
       </div>
@@ -623,6 +624,18 @@
   <script src="./js/scrolling-nav.js"></script>
   <script type="text/javascript" src="./slick/slick/slick.min.js"></script>
   <script type="texxt/javascript" src="./js/script.js"></script>
+  <script>
+    var current = 0,
+      slides = document.getElementsByClassName("main-slide-img");
+
+    setInterval(function () {
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = 0;
+      }
+      current = (current != slides.length - 1) ? current + 1 : 0;
+      slides[current].style.opacity = 1;
+    }, 4000);
+  </script>
   <script>
     AOS.init();
   </script>
