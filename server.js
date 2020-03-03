@@ -13,10 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(compression());
 app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './assets')));
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/assetRoutes")(app);
+
 
 var syncOptions = { force: false };
 
