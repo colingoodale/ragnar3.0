@@ -43,4 +43,48 @@ module.exports = function (app) {
     app.get("/assets/nicky/hex1", function (req, res) {
         res.sendFile(path.join(__dirname, "../assets/Hexagon/2_NickyTrucios.png"));
     });
+
+    //Profile pages
+    app.get("/assets/perkins/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/1_ChrisPerkinsBP.png"));
+    });
+    app.get("/assets/matt/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/1_MattGammonBP.png"));
+    });
+    app.get("/assets/ryan/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/1_RyanSteusloffBP.png"));
+    });
+    app.get("/assets/dan/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/1_DanielNarvaizV2BP.png"));
+    });
+    app.get("/assets/chelsea/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_ChelseaGoodaleBP.png"));
+    });
+    app.get("/assets/john/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_JohnVinsonv2BP.png"));
+    });
+    app.get("/assets/adam/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_AdamRaezlerBP.png"));
+    });
+    app.get("/assets/resnick/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_RyanResnickBP.png"));
+    });
+    app.get("/assets/drew/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_DrewDahlbergBP.png"));
+    });
+    app.get("/assets/jordan/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_JordanPawlickiBP.png"));
+    });
+    app.get("/assets/paige/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_PaigeCoppleBP.png"));
+    });
+    app.get("/assets/austin/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_AustinOrrBP.png"));
+    });
+    app.get("/assets/justin/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_JustinDuranBP.png"));
+    });
+    app.get("/assets/nicky/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_NickyTrucoisBP.png"));
+    });
 };
