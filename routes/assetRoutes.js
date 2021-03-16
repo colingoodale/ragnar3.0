@@ -46,6 +46,9 @@ module.exports = function (app) {
     app.get("/assets/nicky/hex1", function (req, res) {
         res.sendFile(path.join(__dirname, "../assets/Hexagon/2_NickyTrucios.png"));
     });
+    app.get("/assets/jacob/hex1", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/2_JacobDuran.png"));
+    });
 
     //Profile pages
     app.get("/assets/perkins/prof", function (req, res) {
@@ -92,5 +95,8 @@ module.exports = function (app) {
     });
     app.get("/assets/nicky/prof", function (req, res) {
         res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_NickyTrucoisBP.png"));
+    });
+    app.get("/assets/jacob/prof", function (req, res) {
+        res.sendFile(path.join(__dirname, "../assets/Hexagon/bio/2_JacobDuran_BP.png"));
     });
 };
