@@ -19,10 +19,10 @@
   "homepage": "https://github.com/colingoodale/ragnar3.0#readme",
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "fs": "0.0.1-security",
     "mysql2": "^1.6.5",
     "nodemailer": "^6.2.1",
